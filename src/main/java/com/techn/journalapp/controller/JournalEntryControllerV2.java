@@ -45,7 +45,7 @@ public class JournalEntryControllerV2 {
     public ResponseEntity<JournalEntry> getById(@PathVariable ObjectId objectId) {
         Optional<JournalEntry> journalEntry = journalEntryService.findById(objectId);
         return  journalEntry.map(entry->new ResponseEntity<>(entry, HttpStatus.OK)).orElseGet(()->new ResponseEntity<>(HttpStatus.NOT_FOUND));
-//        if(journalEntry.isPresent()){ map is taking Function or Elseis taking the supplier
+//        if(journalEntry.isPresent()){ map() is taking Function orElseGet() is taking the Supplier
 //            return  new ResponseEntity<>(journalEntry.get(), HttpStatus.OK);
 //        }
 //        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
