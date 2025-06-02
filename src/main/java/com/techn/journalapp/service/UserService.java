@@ -1,8 +1,6 @@
 package com.techn.journalapp.service;
 
-import com.techn.journalapp.entity.JournalEntry;
 import com.techn.journalapp.entity.User;
-import com.techn.journalapp.repository.JournalEntryRepository;
 import com.techn.journalapp.repository.UserRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void save(User user){
+    public void saveEntries(User user){
         userRepository.save(user);
     }
 

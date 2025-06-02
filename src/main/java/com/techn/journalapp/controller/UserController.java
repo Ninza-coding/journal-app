@@ -22,7 +22,7 @@ public class UserController {
     }
     @PostMapping
     public void createUser(@RequestBody User user){
-        userService.save(user);
+        userService.saveEntries(user);
     }
 
     @PutMapping("/{userName}")
@@ -31,7 +31,7 @@ public class UserController {
         if(userInDb!=null){
             userInDb.setUserName(user.getUserName());
             userInDb.setPassword(user.getPassword());
-            userService.save(userInDb);
+            userService.saveEntries(userInDb);
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
