@@ -1,0 +1,53 @@
+spring:
+  profiles:
+    active: prod
+
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVERS}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: weekly-sentiment-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.techn.journalApp.model
+    properties:
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username='X' password='X';
+      session:
+        timeout:
+          ms: 45000
+  redis:
+    host: redis-10507.c301.ap-south-1-1.ec2.redns.redis-cloud.com
+    port: 10507
+    password: xXMIwmM3tRt2xMyaG149dfRvyGvJnfqH
+    # port: 6379 for local host
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: meirshad07@gmail.com
+    password: nmkm pczj nmfb ulac
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+logging:
+  level:
+    root:
+
+weather:
+  api:
+    key: 464cf87e9c1e41f4a2ecfb3c240ba0a8

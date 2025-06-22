@@ -4,3 +4,8 @@ spring:
       uri: mongodb+srv://meirshad07:oxapibANQYEAJHwI@cluster0.jl0ajab.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: journaldb
       auto-index-creation: true
+
+server:
+  servlet:
+    context-path: /prod
+  port: 8081
